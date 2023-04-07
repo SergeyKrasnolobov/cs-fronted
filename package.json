@@ -1,0 +1,20 @@
+{
+  "name": "cs-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergeyKrasnolobov/cs-fronted.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergeyKrasnolobov/cs-fronted/issues"
+  },
+  "homepage": "https://github.com/SergeyKrasnolobov/cs-fronted#readme",
+  "devDependencies": {
+    "typescript": "^5.0.3",
+    "ts-node": "^10.9.1"
+  }
+}
