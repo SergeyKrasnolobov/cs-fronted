@@ -12,6 +12,11 @@
   "bugs": {
     "url": "https://github.com/SergeyKrasnolobov/cs-fronted/issues"
   },
+  "scripts": {
+    "start": "node build/*.js",
+    "build": "tsc",
+    "dev": "nodemon src/hw1/bitAccessor.ts"
+  },
   "homepage": "https://github.com/SergeyKrasnolobov/cs-fronted#readme",
   "devDependencies": {
     "typescript": "^5.0.3",
