@@ -15,11 +15,13 @@
   "scripts": {
     "start": "node build/*.js",
     "build": "tsc",
-    "dev": "nodemon src/hw1/bitAccessor.ts"
+    "dev": "nodemon src"
   },
   "homepage": "https://github.com/SergeyKrasnolobov/cs-fronted#readme",
   "devDependencies": {
     "typescript": "^5.0.3",
+    "@types/node": "^18.15.11",
+    "nodemon": "^2.0.22",
     "ts-node": "^10.9.1"
   }
 }
