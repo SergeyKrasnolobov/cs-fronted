@@ -13,7 +13,8 @@
     "url": "https://github.com/SergeyKrasnolobov/cs-fronted/issues"
   },
   "scripts": {
-    "start": "node build/*.js",
+    "start:code": "npm run build && npm run start",
+    "start": "node build/**/linkedList.js",
     "build": "tsc",
     "dev": "nodemon src"
   },
