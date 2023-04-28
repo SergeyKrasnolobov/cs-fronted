@@ -69,6 +69,32 @@ export class LinkedList {
       current!.next!.prev = current.prev;
     }
   };
+  deleteLast = () => {
+    const temp = this.last;
+    //If List has only one element
+    if (this.first?.next == null) {
+      this.first = null;
+      this.last = null;
+    } else {
+      const lastPrevNode = this.last?.prev;
+      lastPrevNode && (lastPrevNode.next = null);
+      this.last = lastPrevNode!;
+    }
+    return temp;
+  };
+  deleteFirst = () => {
+    const temp = this.first;
+    //If List has only one element
+    if (this.last?.next == null) {
+      this.first = null;
+      this.last = null;
+    } else {
+      const firstNextNode = this.first?.next;
+      firstNextNode && (firstNextNode.prev = null);
+      this.first = firstNextNode!;
+    }
+    return temp;
+  };
   setAfter = (afterValue: number, value: number) => {
     const node = new ListNode(value);
     let current = this.first;
