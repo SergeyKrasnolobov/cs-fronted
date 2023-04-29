@@ -21,7 +21,7 @@ const getMaxByteSize = (nSchema) => Math.max(...Object.values(nSchema).map(({ ty
 const Structure = (schema) => {
   const obj = {};
   const normalizedSchema = normalizeSchema(schema);
-  const byteSize = _getMaxByteSize(normalizedSchema);
+  const byteSize = getMaxByteSize(normalizedSchema);
   const lengthBuffer = schema.reduce((acc, [key, type, size]) => {
     return (acc += normalizedSchema[key].size ?? 1);
   }, 0);
