@@ -14,9 +14,8 @@
   },
   "scripts": {
     "start:code": "npm run build && npm run start",
-    "start": "node build/**/linkedList.js",
-    "build": "tsc",
-    "dev": "nodemon src"
+    "start": "node build/**/stack.js",
+    "build": "tsc"
   },
   "homepage": "https://github.com/SergeyKrasnolobov/cs-fronted#readme",
   "devDependencies": {

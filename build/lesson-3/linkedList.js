@@ -66,6 +66,39 @@ class LinkedList {
                 current.next.prev = current.prev;
             }
         };
+        this.isEmpty = () => {
+            return !this.first && !this.last;
+        };
+        this.deleteLast = () => {
+            var _a, _b;
+            const temp = this.last;
+            //If List has only one element
+            if (((_a = this.last) === null || _a === void 0 ? void 0 : _a.prev) == null) {
+                this.first = null;
+                this.last = null;
+            }
+            else {
+                const lastPrevNode = (_b = this.last) === null || _b === void 0 ? void 0 : _b.prev;
+                lastPrevNode && (lastPrevNode.next = null);
+                this.last = lastPrevNode;
+            }
+            return temp;
+        };
+        this.deleteFirst = () => {
+            var _a, _b;
+            const temp = this.first;
+            //If List has only one element
+            if (((_a = this.first) === null || _a === void 0 ? void 0 : _a.next) == null) {
+                this.first = null;
+                this.last = null;
+            }
+            else {
+                const firstNextNode = (_b = this.first) === null || _b === void 0 ? void 0 : _b.next;
+                firstNextNode && (firstNextNode.prev = null);
+                this.first = firstNextNode;
+            }
+            return temp;
+        };
         this.setAfter = (afterValue, value) => {
             var _a;
             const node = new ListNode(value);
@@ -102,15 +135,23 @@ class LinkedList {
         this.first = null;
         this.last = null;
     }
+    //Генератор для итератора чтобы обойти в цикле for of
+    *[Symbol.iterator]() {
+        let current = this.first;
+        while (current) {
+            yield current.value;
+            current = current.next;
+        }
+    }
 }
 exports.LinkedList = LinkedList;
-const ll = new LinkedList();
-ll.setFirst(2);
-ll.setFirst(32);
-ll.setLast(78);
-ll.setAfter(32, 0);
-ll.setAfter(78, 120);
-console.log(ll.toPlainObject());
+// const ll = new LinkedList();
+// ll.setFirst(2);
+// ll.setFirst(32);
+// ll.setLast(78);
+// ll.setAfter(32, 0);
+// ll.setAfter(78, 120);
+// console.log(ll.toPlainObject());
 /**
  *
  * Result
@@ -124,9 +165,8 @@ console.log(ll.toPlainObject());
 ]
  *
  */
-ll.deleteNode(2);
-console.log(ll.toPlainObject());
-console.log(ll.getNode(2));
+// ll.deleteNode(2);
+// console.log(ll.toPlainObject());
 /**
  *
  * Result after delete Node with value --> 2
@@ -139,3 +179,4 @@ console.log(ll.getNode(2));
 ]
  *
  */
+// console.log(ll.getNode(2)); //false
