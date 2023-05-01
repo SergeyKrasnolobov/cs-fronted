@@ -69,10 +69,13 @@ export class LinkedList {
       current!.next!.prev = current.prev;
     }
   };
+  isEmpty = () => {
+    return !this.first && !this.last;
+  };
   deleteLast = () => {
     const temp = this.last;
     //If List has only one element
-    if (this.first?.next == null) {
+    if (this.last?.prev == null) {
       this.first = null;
       this.last = null;
     } else {
@@ -85,7 +88,7 @@ export class LinkedList {
   deleteFirst = () => {
     const temp = this.first;
     //If List has only one element
-    if (this.last?.next == null) {
+    if (this.first?.next == null) {
       this.first = null;
       this.last = null;
     } else {
@@ -126,17 +129,26 @@ export class LinkedList {
     }
     return plainArray;
   };
+
+  //Генератор для итератора чтобы обойти в цикле for of
+  *[Symbol.iterator]() {
+    let current = this.first;
+    while (current) {
+      yield current.value;
+      current = current.next;
+    }
+  }
 }
 
-const ll = new LinkedList();
+// const ll = new LinkedList();
 
-ll.setFirst(2);
-ll.setFirst(32);
-ll.setLast(78);
-ll.setAfter(32, 0);
-ll.setAfter(78, 120);
+// ll.setFirst(2);
+// ll.setFirst(32);
+// ll.setLast(78);
+// ll.setAfter(32, 0);
+// ll.setAfter(78, 120);
 
-console.log(ll.toPlainObject());
+// console.log(ll.toPlainObject());
 
 /**
  * 
@@ -152,9 +164,9 @@ console.log(ll.toPlainObject());
  * 
  */
 
-ll.deleteNode(2);
+// ll.deleteNode(2);
 
-console.log(ll.toPlainObject());
+// console.log(ll.toPlainObject());
 
 /**
  * 
@@ -168,4 +180,4 @@ console.log(ll.toPlainObject());
 ]
  * 
  */
-console.log(ll.getNode(2)); //false
+// console.log(ll.getNode(2)); //false
