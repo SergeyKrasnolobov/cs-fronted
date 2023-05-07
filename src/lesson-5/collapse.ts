@@ -29,4 +29,5 @@ const obj = {
     },
   },
 };
+
 collapse(obj);
