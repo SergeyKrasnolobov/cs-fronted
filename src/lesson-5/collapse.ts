@@ -30,7 +30,7 @@ const obj = {
   },
 };
 
-export const collapseOnQueue = (obj: Record<string, any>) => {
+export const collapseOnStack = (obj: Record<string, any>) => {
   const result: Record<string, any> = {};
   const stack: any[] = Object.entries(obj);
 
@@ -43,12 +43,14 @@ export const collapseOnQueue = (obj: Record<string, any>) => {
     }
     const initialKey = createKey(key, "");
     const entries = Object.entries(value);
-    for (const [key, _value] of entries) {
-      stack.unshift([createKey(key, initialKey), _value]);
+    for (let i = entries.length - 1; i >= 0; i--) {
+      const [_key, _value] = entries[i];
+      stack.push([createKey(_key, initialKey), _value]);
     }
   }
+  console.log(result);
   return result;
 };
 
 collapseRecursive(obj);
-collapseOnQueue(obj);
+collapseOnStack(obj);
