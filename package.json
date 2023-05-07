@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start:code": "npm run build && npm run start",
-    "start": "node build/**/collapse.js",
+    "start": "node build/**/vector.js",
     "build": "tsc"
   },
   "homepage": "https://github.com/SergeyKrasnolobov/cs-fronted#readme",
