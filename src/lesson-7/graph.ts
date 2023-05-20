@@ -105,8 +105,50 @@ graph.hasRelation("a", "c");
 
 graph.createTransitiveClosure().hasRelation("a", "c");
 
-/**
- *      row col
- * 0 ->  0   0
- * 1 ->  0   1
- */
+const graph2 = [
+  {
+    value: "a",
+    relation: ["b", "c"],
+  },
+  {
+    value: "b",
+    relation: ["d"],
+  },
+  {
+    value: "c",
+    relation: ["e"],
+  },
+  {
+    value: "d",
+    relation: ["e"],
+  },
+  {
+    value: "e",
+  },
+];
+const sort = (graph: { value: any; relation?: any }[]) => {
+  const map = new Map(
+    graph.map(({ value, relation }) => {
+      return [value, { value, relation }];
+    })
+  );
+  const set = new Set();
+  graph.forEach(({ value }) => traverse(value));
+  function traverse(value: any) {
+    const { relation } = map.get(value)!;
+
+    if (set.has(value)) {
+      return;
+    }
+    if (!relation) {
+      set.add(value);
+      return;
+    }
+    relation.forEach((val: any) => traverse(val));
+    set.add(value);
+  }
+
+  return set;
+};
+
+console.log(sort(graph2));
