@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start:code": "npm run build && npm run start",
-    "start": "node build/**/hashTable.js",
+    "start": "node build/**/graph.js",
     "build": "tsc"
   },
   "homepage": "https://github.com/SergeyKrasnolobov/cs-fronted#readme",
