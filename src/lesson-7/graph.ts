@@ -107,23 +107,27 @@ graph.createTransitiveClosure().hasRelation("a", "c");
 
 const graph2 = [
   {
-    value: "a",
-    relation: ["b", "c"],
+    value: "Стать человеком",
+    relation: ["Жениться", "Дети", "Высшее образование"],
   },
   {
-    value: "b",
-    relation: ["d"],
+    value: "Дети",
+    relation: ["Жениться"],
   },
   {
-    value: "c",
-    relation: ["e"],
+    value: "Жениться",
+    relation: ["Высшее образование"],
   },
   {
-    value: "d",
-    relation: ["e"],
+    value: "Высшее образование",
+    relation: ["Закончить школу"],
   },
   {
-    value: "e",
+    value: "Закончить школу",
+    relation: ["Родиться"],
+  },
+  {
+    value: "Родиться",
   },
 ];
 const sort = (graph: { value: any; relation?: any }[]) => {
